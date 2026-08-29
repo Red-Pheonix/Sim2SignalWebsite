@@ -1,0 +1,129 @@
+/* ==========================================================================
+   site.css — customizations layered on top of the template's main.css.
+   Keep local tweaks here so the template files stay close to upstream.
+   (The accent colour itself is changed in main.css, since it appears in
+   ~25 places across many selectors.)
+   ========================================================================== */
+
+/* Hero variant with no image on the right: let the heading use the width. */
+.home-content-left.wide {
+  width: 72%;
+}
+
+@media only screen and (max-width: 1200px) {
+  .home-content-left.wide {
+    width: 85%;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .home-content-left.wide {
+    width: 100%;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Header wordmark.
+   The template ships the site name baked into images/logo.png (a white
+   "LibSignal" wordmark) and hides the anchor text with `font: 0/0 a`.
+   Turn the image off and render the real text instead, so the name is
+   editable in the HTML.
+   -------------------------------------------------------------------------- */
+.header-logo a {
+  width: auto;
+  height: auto;
+  background: none;
+  font: 1.7rem/1.2 "montserrat-bold", sans-serif;
+  color: #ffffff;
+  letter-spacing: .05rem;
+  white-space: nowrap;
+}
+
+.header-logo a:hover,
+.header-logo a:focus {
+  color: #cfe3f7;
+}
+
+@media only screen and (max-width: 900px) {
+  .header-logo a {
+    font-size: 1.5rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Agenda step badges.
+   The template sizes these as a fixed circle (54px, 45px under 768px), which
+   fits a single digit but clips a duration like "10 min". Make the badge a
+   pill that hugs its text, keep it centred on the timeline rule, and widen
+   the step's left padding so the badge's white ring clears the heading.
+   Breakpoints match main.css: 768px and 400px.
+   -------------------------------------------------------------------------- */
+.about-how-content .step {
+  padding-left: 72px;
+}
+
+.about-how-content .step::before {
+  width: auto;
+  padding: 0 1.2rem;
+  font-size: 1.3rem;
+  letter-spacing: .05rem;
+  border-radius: 2.7rem;
+  left: -32px;
+}
+
+@media only screen and (max-width: 768px) {
+  .about-how-content .step {
+    padding-left: 94px;
+  }
+  .about-how-content .step::before {
+    font-size: 1.3rem;
+    width: auto;
+    left: -2px;
+  }
+}
+
+/* Under 400px the template centres the badge above the step; auto width is
+   fine there, so only the padding reset needs restating. */
+@media only screen and (max-width: 400px) {
+  .about-how-content .step {
+    padding-left: 0;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Organizers section.
+   The template only paints a white background and dark heading colours under
+   `#about` / `#agenda`, keyed on the id. The organizers block needs its own id
+   (ids must be unique on the page) so it inherits the dark body background and
+   its headings vanish. Give it the same treatment as #about.
+   -------------------------------------------------------------------------- */
+#organizers-section {
+  background: #ffffff;
+  padding: 2rem 0 9rem;
+  overflow: hidden;
+}
+
+/* The template centres the intro-header underline only under `#about`; the
+   agenda and organizers sections reuse `.about-how` with a centred heading,
+   so centre their rule as well. */
+#agenda .about-how h1.intro-header::before,
+#organizers-section .about-how h1.intro-header::before {
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+/* --------------------------------------------------------------------------
+   Footer wordmark.
+   Same problem as the header: `.footer-logo` is an empty div sized to show
+   images/logo.png ("LibSignal"). Render the div's text instead.
+   -------------------------------------------------------------------------- */
+.footer-logo {
+  width: auto;
+  height: auto;
+  background: none;
+  font: 1.6rem/1.2 "montserrat-bold", sans-serif;
+  color: #ffffff;
+  letter-spacing: .05rem;
+}

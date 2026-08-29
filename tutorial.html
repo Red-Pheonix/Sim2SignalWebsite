@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<!--[if lt IE 9 ]><html class="no-js oldie" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+
+    <!--- basic page needs
+   ================================================== -->
+    <meta charset="utf-8">
+    <title>Bridging the Sim-to-Real Gap in Traffic Engineering &mdash; Tutorial @ ITSC 2026</title>
+    <meta name="description" content="Bridging the Sim-to-Real Gap in Traffic Engineering: Integrating Traffic Signal Control and Reinforcement Learning. Half-day tutorial at IEEE ITSC 2026.">
+    <meta name="author" content="">
+
+    <!-- mobile specific metas
+   ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS
+   ================================================== -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/site.css">
+
+    <!-- script
+   ================================================== -->
+    <script src="js/modernizr.js"></script>
+    <script src="js/pace.min.js"></script>
+
+    <!-- favicons
+	================================================== -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+</head>
+
+<body id="top">
+
+    <!-- header
+   ================================================== -->
+   <header id="header" class="row">
+
+   		<div class="header-logo">
+	        <a href="tutorial.html">ITSC 2026 Tutorial</a>
+	    </div>
+
+	   	<nav id="header-nav-wrap">
+			<ul class="header-main-nav">
+				<li class="current"><a class="smoothscroll"  href="#home" title="home">Home</a></li>
+                <li><a class="smoothscroll"  href="#about" title="about">Aim</a></li>
+                <li><a class="smoothscroll"  href="#agenda" title="agenda">Agenda</a></li>
+                <li><a class="smoothscroll"  href="#organizers" title="organizers">Organizers</a></li>
+                <li><a href="index.html" title="sim2signal">Sim2Signal</a></li>
+			</ul>
+
+            <a href="https://github.com/Red-Pheonix/Sim2RealTSCBenchMark" title="github" class="button button-primary cta" target="_blank">GitHub</a>
+		</nav>
+
+		<a class="header-menu-toggle" href="#"><span>Menu</span></a>
+
+   </header> <!-- /header -->
+
+
+   <!-- home
+   ================================================== -->
+   <section id="home" data-parallax="scroll" data-image-src="images/car-trail.png" data-natural-width=3000 data-natural-height=2000>
+
+        <div class="overlay"></div>
+        <div class="home-content">
+
+            <div class="row contents">
+                <div class="home-content-left wide">
+
+                    <h3 data-aos="fade-up">Friday, 18 September 2026 &middot; 14:00&ndash;16:00 <br> Naples, Italy</h3>
+
+                    <h1 data-aos="fade-up">
+                        Bridging the Sim-to-Real Gap in Traffic Engineering
+                    </h1>
+                    <h3 data-aos="fade-up">
+                        29th IEEE International Conference on Intelligent Transportation Systems (ITSC 2026)
+                    </h3>
+
+                    <div class="buttons" data-aos="fade-up">
+                        <a href="#about" class="smoothscroll button stroke">
+                            <span class="icon-circle-down" aria-hidden="true"></span>
+                            Learn More
+                        </a>
+                        <a href="#agenda" class="smoothscroll button stroke">
+                            <span class="icon-file" aria-hidden="true"></span>
+                            Agenda
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div> <!-- end home-content -->
+
+        <div class="home-scrolldown">
+            <a href="#about" class="scroll-icon smoothscroll">
+                <span>Scroll Down</span>
+                <i class="icon-arrow-right" aria-hidden="true"></i>
+            </a>
+        </div>
+
+    </section> <!-- end home -->
+
+
+    <!-- about
+    ================================================== -->
+    <section id="about">
+
+        <div class="row about-intro">
+
+            <div class="col-four">
+                <h1 class="intro-header" data-aos="fade-up">Aim of the Tutorial</h1>
+            </div>
+            <div class="col-eight">
+                <p class="lead" data-aos="fade-up">
+                    Reinforcement learning has produced traffic signal controllers that perform very well in simulation. Almost none of them have been deployed on real signal hardware. The reason is the Sim-to-Real gap: the simulator a policy learns in differs from the street it is meant to run on, and the policy does not survive the move.
+                </p>
+                <p class="lead" data-aos="fade-up">
+                    This half-day tutorial connects two communities that have been working on the same problem under different names. Traffic engineering has fought this gap for decades under the name <em>calibration</em>. Reinforcement learning attacks it with grounding, domain randomization, domain adaptation, and reward shaping. We show that both are addressing the same four things &mdash; mismatches in observation, action, transition, and reward &mdash; and that the two halves fit together.
+                </p>
+                <p class="lead" data-aos="fade-up">
+                    Attendees will leave knowing how a real network is calibrated and exported into a simulator, which RL transfer methods attach to which part of the gap, and how to tell a good transfer from a bad one by reading the evaluation. Two live demos anchor the material: a GMNS network editor for the calibration half, and a phase-time visualizer for the evaluation half.
+                </p>
+                <p class="lead" data-aos="fade-up">
+                    The four-gap decomposition used throughout the tutorial comes from <a href="index.html">Sim2Signal</a>, our benchmark for measuring the Sim-to-Real gap in traffic signal control.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- agenda
+    ================================================== -->
+    <section id="agenda">
+
+        <div class="row about-how">
+
+            <h1 class="intro-header" data-aos="fade-up">Agenda and Materials</h1>
+
+            <div class="about-how-content" data-aos="fade-up">
+                <div class="about-how-steps block-1-2 block-tab-full group">
+
+                    <div class="bgrid step" data-item="10 min">
+                        <h3>Welcome and Opening</h3>
+                        <p>What the Sim-to-Real gap is, and why it matters for traffic engineering.</p>
+                        <p>The (S, A, T, R) decomposition: observation, action, transition, and reward gaps mapped onto the MDP tuple &mdash; the spine of the rest of the tutorial.</p>
+                        <p><em>Hua Wei</em></p>
+                    </div>
+
+                    <div class="bgrid step" data-item="10 min">
+                        <h3>The Sim-to-Real Gap in Traffic Engineering</h3>
+                        <p>The gap predates RL: traffic engineering has fought it for decades under the name calibration.</p>
+                        <p>Where the gap comes from in practice, and the state of real deployment &mdash; the surveyed RL-for-signal-control literature is simulation-only.</p>
+                        <p><em>Hua Wei</em></p>
+                    </div>
+
+                    <div class="bgrid step" data-item="30 min">
+                        <h3>Calibration for Traffic Signal Control</h3>
+                        <p>Signal terminology for an RL audience: movements, phases and phase transitions, min/max green and clearance, pretimed vs. actuated control, NEMA dual-ring.</p>
+                        <p>Data formats and simulators: GMNS as the hub, with UTDF, SUMO and CityFlow as spokes; the UTDF &rarr; GMNS &rarr; SUMO/CityFlow conversion pipeline and where it breaks.</p>
+                        <p><strong>Live demo:</strong> the GMNS Editor &mdash; auto-join, merging split intersections, movements, NEMA timing, validate and export.</p>
+                        <p><em>Hua Wei</em></p>
+                    </div>
+
+                    <div class="bgrid step" data-item="15 min">
+                        <h3>Coffee Break</h3>
+                    </div>
+
+                    <div class="bgrid step" data-item="45 min">
+                        <h3>RL Methodology and Evaluation</h3>
+                        <p>The four families of RL solutions &mdash; grounding actions, domain randomization, domain adaptation, reward shaping &mdash; and where each attaches to the taxonomy.</p>
+                        <p>A worked sim-to-sim example: train in CityFlow, transfer to SUMO, induce gaps and measure them.</p>
+                        <p>The multi-agent extension: why multi-intersection control does not reduce to the single-intersection case, and the cascading invalidation effect.</p>
+                        <p><strong>Live demo:</strong> the phase-time visualizer &mdash; reading space-time and phase-time diagrams to tell a good transfer from a bad one.</p>
+                        <p><em>Ferdous Al Rafi</em></p>
+                    </div>
+
+                    <div class="bgrid step" data-item="10 min">
+                        <h3>Closing and Open Problems</h3>
+                        <p>Recap: four gaps, one MDP, calibration and RL as two sides of the same problem.</p>
+                        <p>Open problems: grounding the interface rather than only the dynamics, delay- and constraint-aware MDPs, and the empty deployment cell.</p>
+                        <p>Relevant ITSS Technical Committee: Decision and Control in Transportation Systems. Discussion and Q&amp;A.</p>
+                    </div>
+
+                </div>
+           </div> <!-- end about-how-content -->
+
+           <!-- TODO: add slide / video / code links per block after the tutorial is delivered,
+                following the ITSC 2023 page format:
+                <p><a href="..." target="_blank">Slides</a>, <a href="..." target="_blank">Video</a></p> -->
+
+        </div> <!-- end about-how -->
+
+    </section> <!-- end agenda -->
+
+
+    <!-- organizers
+    ================================================== -->
+    <section id="organizers-section">
+
+        <div class="row about-how" id="organizers">
+
+            <h1 class="intro-header" data-aos="fade-up">Organizers</h1>
+        </div>
+
+        <div class="row about-features">
+
+            <div class="features-list block-1-2 block-m-1-2 block-mob-full group">
+
+                <div class="bgrid feature" data-aos="fade-up">
+
+                    <div class="service-content">
+
+                        <h3><a href="https://www.public.asu.edu/~hwei27/index.html" target="_blank">Hua Wei</a></h3>
+
+                        <p>
+                            Assistant Professor, School of Computing and Augmented Intelligence, Arizona State University. His research bridges reinforcement learning and transportation, with an emphasis on closing the sim-to-real gap for traffic signal control and multi-agent traffic systems. He has organized community tutorials on traffic-control RL at ITSC 2020 and ITSC 2023, and delivered a keynote at an ITSC 2024 workshop.
+                        </p>
+
+                    </div>
+
+                </div> <!-- /bgrid -->
+
+                <div class="bgrid feature" data-aos="fade-up">
+
+                    <div class="service-content">
+
+                        <h3>Xuesong Zhou</h3>
+
+                        <p>
+                            Professor of Transportation Systems, School of Sustainable Engineering and the Built Environment, Arizona State University, and Director of the ASU Transportation+AI Lab. He is the principal architect of several open-source packages including DTALite, NEXTA and OSM2GMNS, and serves as Executive Editor-in-Chief of Urban Rail Transit.
+                        </p>
+
+                    </div>
+
+                </div> <!-- /bgrid -->
+
+                <div class="bgrid feature" data-aos="fade-up">
+
+                    <div class="service-content">
+
+                        <h3>Longchao Da</h3>
+
+                        <p>
+                            Ph.D. student in Computer Science at Arizona State University. His research focuses on mitigating the sim-to-real gap in reinforcement learning through uncertainty-aware learning, grounding and transfer mechanisms, and more realistic simulation environments. He has organized hands-on tutorials at KDD 2025, ITSC 2023 and ICDM 2025.
+                        </p>
+
+                    </div>
+
+                </div> <!-- /bgrid -->
+
+                <div class="bgrid feature" data-aos="fade-up">
+
+                    <div class="service-content">
+
+                        <h3>Ferdous Al Rafi</h3>
+
+                        <p>
+                            Ph.D. student in Computer Science at Arizona State University, with a background in Civil Engineering (Transportation) from the Bangladesh University of Engineering and Technology. His research interests include multi-agent reinforcement learning, traffic signal control, and bridging the sim-to-real gap in transportation systems.
+                        </p>
+
+                    </div>
+
+                </div> <!-- /bgrid -->
+
+            </div> <!-- end features-list -->
+
+        </div> <!-- end about-features -->
+
+    </section> <!-- end organizers -->
+
+
+    <!-- footer
+    ================================================== -->
+    <footer>
+
+        <div class="footer-main">
+            <div class="row">
+
+                <div class="col-four md-1-2 tab-full footer-info">
+
+                    <div class="footer-logo">ITSC 2026 Tutorial</div>
+
+                    <p>
+                        This project is developed and maintained by DaRL Lab from <a href="https://scai.engineering.asu.edu/" target="_blank">the School of Computing and Augmented Intelligence</a>,
+                        <a href="https://www.asu.edu/" target="_blank">Arizona State University (ASU).</a>
+                    </p>
+
+                </div> <!-- end footer-info -->
+
+                <div class="col-four md-1-4 tab-full mob-full footer-contact">
+                    <h4>Contact</h4>
+
+                    <p>
+                        Hua Wei &mdash; hua.wei@asu.edu<br>
+                        Xuesong Zhou &mdash; xzhou74@asu.edu<br>
+                        Longchao Da &mdash; longchao@asu.edu<br>
+                        Ferdous Al Rafi &mdash; frafi1@asu.edu<br>
+                    </p>
+
+
+                </div> <!-- end footer-contact -->
+
+                <div class="col-four md-1-2 tab-full footer-subscribe">
+
+                    <h4>Call for Participation</h4>
+
+                    <p>Slides, code and recordings will be posted on this page after the tutorial. If you would like to contribute material or have questions about the session, please get in touch.</p>
+                </div> <!-- end footer-subscribe -->
+
+            </div> <!-- /row -->
+        </div> <!-- end footer-main -->
+
+
+      <div class="footer-bottom">
+
+      	<div class="row">
+
+      		<div class="col-twelve">
+	      		<div class="copyright">
+		         	<span>&copy; Copyright Sim2Signal 2026.</span>
+		         	<span>Design by <a href="http://www.styleshout.com/">styleshout</a></span>
+		         </div>
+
+		         <div id="go-top">
+		            <a class="smoothscroll" title="Back to Top" href="#top"><i class="icon-arrow-up"></i></a>
+		         </div>
+	      	</div>
+
+      	</div> <!-- end footer-bottom -->
+
+      </div>
+
+    </footer>
+
+    <div id="preloader">
+    	<div id="loader"></div>
+    </div>
+
+    <!-- Java Script
+    ================================================== -->
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+</html>

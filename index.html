@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<!--[if lt IE 9 ]><html class="no-js oldie" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+
+    <!--- basic page needs
+   ================================================== -->
+    <meta charset="utf-8">
+    <title>Sim2Signal &mdash; Sim-to-Real Benchmarks for Traffic Signal Control</title>
+    <meta name="description" content="Sim2Signal: Sim-to-Real Benchmarks for Traffic Signal Control.">
+    <meta name="author" content="">
+
+    <!-- mobile specific metas
+   ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS
+   ================================================== -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/site.css">
+
+    <!-- script
+   ================================================== -->
+    <script src="js/modernizr.js"></script>
+    <script src="js/pace.min.js"></script>
+
+    <!-- favicons
+	================================================== -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+</head>
+
+<body id="top">
+
+    <!-- header
+   ================================================== -->
+   <header id="header" class="row">
+
+   		<div class="header-logo">
+	        <a href="tutorial.html">ITSC 2026 Tutorial</a>
+	    </div>
+
+	   	<nav id="header-nav-wrap">
+			<ul class="header-main-nav">
+                <li class="current"><a class="smoothscroll"  href="#home" title="sim2signal">Sim2Signal</a></li>
+                <li><a class="smoothscroll"  href="#about" title="about">About</a></li>
+				<li><a class="smoothscroll"  href="#features" title="features">Benchmark</a></li>
+				<li><a class="smoothscroll"  href="#download" title="get started">Get Started</a></li>
+				<li><a href="tutorial.html" title="tutorial">Tutorial</a></li>
+			</ul>
+
+            <!-- TODO: confirm the public code repo URL before going live. -->
+            <a href="https://github.com/Red-Pheonix/Sim2RealTSCBenchMark" title="github" class="button button-primary cta" target="_blank">GitHub</a>
+		</nav>
+
+		<a class="header-menu-toggle" href="#"><span>Menu</span></a>
+
+   </header> <!-- /header -->
+
+
+   <!-- home
+   ================================================== -->
+   <section id="home" data-parallax="scroll" data-image-src="images/car-trail.png" data-natural-width=3000 data-natural-height=2000>
+
+        <div class="overlay"></div>
+        <div class="home-content">
+
+            <div class="row contents">
+                <div class="home-content-left wide">
+
+                    <h3 data-aos="fade-up">Welcome to</h3>
+
+                    <h1 data-aos="fade-up">
+                        Sim2Signal
+                    </h1>
+                    <h3 data-aos="fade-up">
+                        Sim-to-Real Benchmarks For <br>Traffic Signal Control.
+                    </h3>
+
+                    <div class="buttons" data-aos="fade-up">
+                        <a href="#about" class="smoothscroll button stroke">
+                            <span class="icon-circle-down" aria-hidden="true"></span>
+                            Learn More
+                        </a>
+                        <!-- TODO: point this at the paper (arXiv / proceedings) once it is public. -->
+                        <a href="#download" class="smoothscroll button stroke">
+                            <span class="icon-file" aria-hidden="true"></span>
+                            Paper
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div> <!-- end home-content -->
+
+        <div class="home-scrolldown">
+            <a href="#about" class="scroll-icon smoothscroll">
+                <span>Scroll Down</span>
+                <i class="icon-arrow-right" aria-hidden="true"></i>
+            </a>
+        </div>
+
+    </section> <!-- end home -->
+
+
+    <!-- about
+    ================================================== -->
+    <section id="about">
+
+        <div class="row about-intro">
+
+            <div class="col-four">
+                <h1 class="intro-header" data-aos="fade-up">About Sim2Signal</h1>
+            </div>
+            <div class="col-eight">
+                <p class="lead" data-aos="fade-up">
+                    Reinforcement learning achieves strong traffic signal control performance in simulation, yet policies trained in simulators often fail once deployed in the real world. Sim2Signal is a benchmark for measuring that Sim-to-Real gap and for testing the methods meant to close it.
+                </p>
+                <p class="lead" data-aos="fade-up">
+                    Sim2Signal decomposes the Sim-to-Real gap into four sources &mdash; the <strong>observation</strong>, <strong>action</strong>, <strong>transition</strong>, and <strong>reward</strong> gaps &mdash; matching the four components of the underlying MDP. Each gap is then induced in isolation under a shared protocol, so the effect of one gap source, and of any method that targets it, can be read off directly.
+                </p>
+
+            </div>
+
+            <div class="row about-bottom-image">
+
+                <img src="images/sim2signal-overview.png"
+                     srcset="images/sim2signal-overview.png"
+                     sizes="(max-width: 2400px) 100vw, 2400px"
+                     alt="Sim2Signal overview: the four gap sources and the mitigation methods evaluated against each"
+                     data-aos="fade-up">
+
+            </div>
+
+        </div>
+
+
+        <div class="row about-how" id="features">
+
+            <h1 class="intro-header" data-aos="fade-up">Benchmark</h1>
+        </div>
+
+        <div class="row about-features">
+
+            <div class="features-list block-1-3 block-m-1-2 block-mob-full group">
+
+                <div class="bgrid feature" data-aos="fade-up">
+
+                    <span class="icon"><i class="icon-window"></i></span>
+
+                    <div class="service-content">
+
+                        <h3>Four Gap Sources</h3>
+
+                        <p>
+                            The Sim-to-Real gap is split along the MDP tuple: observation (sensor noise, failures, detection-zone limits), action (execution delay and restricted phase transitions), transition (traffic and vehicle dynamics), and reward (objectives the simulator cannot compute).
+                        </p>
+
+                    </div>
+
+                    </div> <!-- /bgrid -->
+
+                    <div class="bgrid feature" data-aos="fade-up">
+
+                        <span class="icon"><i class="icon-image"></i></span>
+
+                    <div class="service-content">
+                        <h3>One Gap At A Time</h3>
+
+                        <p>Every gap is induced on its own, under one shared protocol, with no gap induced as the reference point. This isolates what each source actually costs instead of reporting a single blended number.
+                        </p>
+
+
+                    </div>
+
+                </div> <!-- /bgrid -->
+
+                <div class="bgrid feature" data-aos="fade-up">
+
+                    <span class="icon"><i class="icon-paint-brush"></i></span>
+
+                    <div class="service-content">
+                        <h3>Real-World Networks</h3>
+
+                        <p>Ten calibrated networks built from five real-world locations, spanning single intersections through multi-intersection corridors, so results are not tied to one toy grid.</p>
+                    </div>
+
+                </div> <!-- /bgrid -->
+
+                <div class="bgrid feature" data-aos="fade-up">
+
+                    <span class="icon"><i class="icon-sliders"></i></span>
+
+                    <div class="service-content">
+                        <h3>Sim-To-Sim Evaluation</h3>
+
+                        <p>Policies train in a low-fidelity simulator (CityFlow) and transfer to a high-fidelity one (SUMO) that plays the role of the real world. The "real" side stays fully controllable, so gaps can be induced and measured exactly.</p>
+                    </div>
+
+                </div> <!-- /bgrid -->
+
+                    <div class="bgrid feature" data-aos="fade-up">
+
+                        <span class="icon"><i class="icon-file"></i></span>
+
+                    <div class="service-content">
+                        <h3>Mitigation Methods</h3>
+
+                        <p>Eighteen mitigation methods on two base RL controllers, covering domain randomization, domain adaptation, grounded action transformation, delay-aware prediction, action shielding, and reward-side approaches.</p>
+
+                    </div>
+
+                    </div> <!-- /bgrid -->
+
+                <div class="bgrid feature" data-aos="fade-up">
+
+                    <span class="icon"><i class="icon-gift"></i></span>
+
+                    <div class="service-content">
+                        <h3>Reproducible Pipeline</h3>
+
+                        <p>The full pipeline is released: pretrain the base controller in simulation, train the mitigation method, deploy into the "real" environment, and measure the gap. Configs and scripts included.</p>
+
+                    </div>
+
+                </div> <!-- /bgrid -->
+
+            </div> <!-- end features-list -->
+
+        </div> <!-- end about-features -->
+
+    </section> <!-- end about -->
+
+
+    <!-- download
+    ================================================== -->
+    <section id="download">
+
+        <div class="row">
+            <div class="col-full">
+                <h1 class="intro-header"  data-aos="fade-up">Get Started Now!</h1>
+
+                <p class="lead" data-aos="fade-up">
+                    Download the benchmark and run the pipeline on your own network. <br>The paper is currently under review; a link will be posted here once it is public.
+                </p>
+
+                <ul class="download-badges">
+                    <li><a href="https://github.com/Red-Pheonix/Sim2RealTSCBenchMark" title="" class="badge-github" data-aos="fade-up">Source Code</a></li>
+                </ul>
+
+            </div>
+        </div>
+
+    </section> <!-- end download -->
+
+
+    <!-- footer
+    ================================================== -->
+    <footer>
+
+        <div class="footer-main">
+            <div class="row">
+
+                <div class="col-four md-1-2 tab-full footer-info">
+
+                    <div class="footer-logo">ITSC 2026 Tutorial</div>
+
+                    <p>
+                        This project is developed and maintained by DaRL Lab from <a href="https://scai.engineering.asu.edu/" target="_blank">the School of Computing and Augmented Intelligence</a>,
+                        <a href="https://www.asu.edu/" target="_blank">Arizona State University (ASU).</a>
+                    </p>
+
+                </div> <!-- end footer-info -->
+
+                <div class="col-four md-1-4 tab-full mob-full footer-contact">
+                    <h4>Contributors</h4>
+
+                    <!-- TODO: confirm the final author list before publishing. -->
+                    <p>
+                        Ferdous Al Rafi, Ph.D. Student @ ASU<br>
+                        Longchao Da, Ph.D. Student @ ASU<br>
+                        <a href="https://www.public.asu.edu/~hwei27/index.html" target="_blank">Hua Wei</a>, Assistant Professor @ ASU<br>
+                    </p>
+
+
+                </div> <!-- end footer-contact -->
+
+                <div class="col-four md-1-2 tab-full footer-subscribe">
+
+                    <h4>Call for Participation</h4>
+
+                    <p>We are actively maintaining this project and welcoming any possible contributions. Please raise issues or pull requests on GitHub or email us if you would like to contribute or request an update.</p>
+                </div> <!-- end footer-subscribe -->
+
+            </div> <!-- /row -->
+        </div> <!-- end footer-main -->
+
+
+      <div class="footer-bottom">
+
+      	<div class="row">
+
+      		<div class="col-twelve">
+	      		<div class="copyright">
+		         	<span>&copy; Copyright Sim2Signal 2026.</span>
+		         	<span>Design by <a href="http://www.styleshout.com/">styleshout</a></span>
+		         </div>
+
+		         <div id="go-top">
+		            <a class="smoothscroll" title="Back to Top" href="#top"><i class="icon-arrow-up"></i></a>
+		         </div>
+	      	</div>
+
+      	</div> <!-- end footer-bottom -->
+
+      </div>
+
+    </footer>
+
+    <div id="preloader">
+    	<div id="loader"></div>
+    </div>
+
+    <!-- Java Script
+    ================================================== -->
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+</html>
